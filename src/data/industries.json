@@ -1,0 +1,112 @@
+{
+  "industries": [
+    {
+      "industryID": 6346,
+      "industryName": "Admin &amp;amp; Virtual Assistant",
+      "industrySlug": "admin-support"
+    },
+    {
+      "industryID": 194,
+      "industryName": "Business Development",
+      "industrySlug": "business"
+    },
+    {
+      "industryID": 422,
+      "industryName": "Content &amp;amp; Editorial",
+      "industrySlug": "copywriting"
+    },
+    {
+      "industryID": 276,
+      "industryName": "Creative &amp;amp; Design",
+      "industrySlug": "design-multimedia"
+    },
+    {
+      "industryID": 192,
+      "industryName": "Customer Success",
+      "industrySlug": "supporting"
+    },
+    {
+      "industryID": 3037,
+      "industryName": "Data Science &amp;amp; Analytics",
+      "industrySlug": "data-science"
+    },
+    {
+      "industryID": 178,
+      "industryName": "DevOps &amp;amp; Infrastructure",
+      "industrySlug": "admin"
+    },
+    {
+      "industryID": 6347,
+      "industryName": "Education &amp;amp; E-learning",
+      "industrySlug": "education"
+    },
+    {
+      "industryID": 265,
+      "industryName": "Finance &amp;amp; Accounting",
+      "industrySlug": "accounting-finance"
+    },
+    {
+      "industryID": 6348,
+      "industryName": "Healthcare &amp;amp; Medical",
+      "industrySlug": "healthcare"
+    },
+    {
+      "industryID": 421,
+      "industryName": "HR &amp;amp; Recruiting",
+      "industrySlug": "hr"
+    },
+    {
+      "industryID": 4792,
+      "industryName": "Legal &amp;amp; Compliance",
+      "industrySlug": "legal"
+    },
+    {
+      "industryID": 185,
+      "industryName": "Marketing &amp;amp; Sales",
+      "industrySlug": "marketing"
+    },
+    {
+      "industryID": 225,
+      "industryName": "Product &amp;amp; Operations",
+      "industrySlug": "management"
+    },
+    {
+      "industryID": 148,
+      "industryName": "Programming",
+      "industrySlug": "dev"
+    },
+    {
+      "industryID": 1738,
+      "industryName": "Sales",
+      "industrySlug": "seller"
+    },
+    {
+      "industryID": 1737,
+      "industryName": "SEO",
+      "industrySlug": "seo"
+    },
+    {
+      "industryID": 1739,
+      "industryName": "Social Media Marketing",
+      "industrySlug": "smm"
+    },
+    {
+      "industryID": 810,
+      "industryName": "Software Engineering",
+      "industrySlug": "engineering"
+    },
+    {
+      "industryID": 1597,
+      "industryName": "Technical Support",
+      "industrySlug": "technical-support"
+    },
+    {
+      "industryID": 1583,
+      "industryName": "Web &amp;amp; App Design",
+      "industrySlug": "web-app-design"
+    }
+  ],
+  "appliedFilters": {
+    "get": "industries"
+  }
+}

@@ -4,21 +4,21 @@ import Home from './pages/Home'
 import Locations from './pages/Locations'
 import Industries from './pages/Industries'
 import Custom from './pages/Custom'
-import JobList from './components/JobList'
+import SubPage from './pages/SubPage'
 
 const App = () => (
-  <BrowserRouter>
+<BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/locations" element={<Locations />}>
-        <Route path=":slug" element={<JobList />} />
-      </Route>
-      <Route path="/industries" element={<Industries />}>
-        <Route path=":slug" element={<JobList />} />
-      </Route>
-      <Route path="/custom" element={<Custom />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/locations" element={<Locations />}>
+            <Route path=":slug" element={<SubPage />} />
+        </Route>
+        <Route path="/industries" element={<Industries />}>
+            <Route path=":slug" element={<SubPage />} />
+        </Route>
+        <Route path="/custom" element={<Custom />} />
     </Routes>
-  </BrowserRouter>
+</BrowserRouter>
 )
 
 export default App

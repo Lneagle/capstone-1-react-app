@@ -1,5 +1,6 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Chart from "../components/Chart";
 import JobList from "../components/JobList";
 
 function SubPage() {
@@ -23,6 +24,7 @@ function SubPage() {
 
 	return (
 		<>
+            <Chart jobs={jobs} />
             <JobList jobs={jobs} />
 		</>
 	)

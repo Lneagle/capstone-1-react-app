@@ -28,7 +28,7 @@ function Industries() {
 	return (
 		<>
             <NavBar />
-            <main>
+            <main className="flex">
                 <section className="link-sidebar">
                     <h3>Industries</h3>
                     <p>Click to load jobs</p>

@@ -48,16 +48,16 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2em 2.5em;
+}
+
+main.flex {
   display: flex;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-h1, p {
-  width: 100%;
+  text-align: center;
 }
 
 .link-sidebar {
@@ -85,38 +85,55 @@ table {
 }
 
 table, th, td {
-  border: 1px solid var(--main-text-color);
+  border: 1px solid #cbcac8;
 }
 
 th, td {
   padding: 0.6em;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--dark-bg-color);
-  cursor: pointer;
-  transition: border-color 0.25s;
+th {
+  vertical-align: top;
+  text-align: center;
+}
+
+th button {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: 0.75em;
+  padding: 2px;
 }
 
 button.ascending::after {
   content: ' ▲';
   font-size: 0.75em;
-  padding-left: 0.5em;
+  padding-left: 0.2em;
 }
 
 button.descending::after {
   content: ' ▼';
   font-size: 0.75em;
-  padding-left: 0.5em;
+  padding-left: 0.2em;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+form {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+form select {
+  margin-right: 1.5em;
+  padding: 1px;
+  color: var(--main-text-color);
+}
+
+form label {
+  margin-right: 0.5em;
+}
+
+form input {
+  margin-right: 1.5em;
+  color: var(--main-text-color);
 }

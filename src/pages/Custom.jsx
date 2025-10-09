@@ -93,7 +93,7 @@ function Custom() {
                         ))}
                     </select>
 
-                    <label htmlFor="industry-select">Location:</label>
+                    <label htmlFor="industry-select">Industry:</label>
                     <select id="industry-select" value={selectedIndustry} onChange={handleIndustryChange}>
                         <option value="">-- Choose industry --</option>
                         {industries.map((industry) => (

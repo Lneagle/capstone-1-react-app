@@ -60,14 +60,14 @@ function JobList({ jobs }) {
             <table>
                 <thead>
                     <tr>
-                        <th><button type="button" onClick={() => requestSort('jobTitle')} className={getClassNamesFor('jobTitle')}>Title</button></th>
-                        <th><button type="button" onClick={() => requestSort('companyName')} className={getClassNamesFor('companyName')}>Company</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobIndustry')} className={getClassNamesFor('jobIndustry')}>Industry</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobType')} className={getClassNamesFor('jobType')}>Type</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobGeo')} className={getClassNamesFor('jobGeo')}>Location</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobLevel')} className={getClassNamesFor('jobLevel')}>Level</button></th>
+                        <th>Title<br /><button type="button" onClick={() => requestSort('jobTitle')} className={getClassNamesFor('jobTitle')}>Sort</button></th>
+                        <th>Company<br /><button type="button" onClick={() => requestSort('companyName')} className={getClassNamesFor('companyName')}>Sort</button></th>
+                        <th>Industry<br /><button type="button" onClick={() => requestSort('jobIndustry')} className={getClassNamesFor('jobIndustry')}>Sort</button></th>
+                        <th>Type<br /><button type="button" onClick={() => requestSort('jobType')} className={getClassNamesFor('jobType')}>Sort</button></th>
+                        <th>Location<br /><button type="button" onClick={() => requestSort('jobGeo')} className={getClassNamesFor('jobGeo')}>Sort</button></th>
+                        <th>Level<br /><button type="button" onClick={() => requestSort('jobLevel')} className={getClassNamesFor('jobLevel')}>Sort</button></th>
                         <th>Salary Range<br />
-                        <button type="button" onClick={() => requestSort('salaryMin')} className={getClassNamesFor('salaryMin')}>Min</button><button type="button" onClick={() => requestSort('salaryMax')} className={getClassNamesFor('salaryMax')}>Max</button></th>
+                        <button type="button" onClick={() => requestSort('salaryMin')} className={getClassNamesFor('salaryMin')}>Sort Min</button><button type="button" onClick={() => requestSort('salaryMax')} className={getClassNamesFor('salaryMax')}>Sort Max</button></th>
                     </tr>
                 </thead>
                 <tbody>

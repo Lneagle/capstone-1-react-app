@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import savedLocations from "../data/locations.json"
 import NavBar from "../components/NavBar"
 
@@ -22,14 +22,20 @@ function Locations() {
     }, [])
 
     const locationList = locations.map(location =>
-        <li key={location.geoID}><Link to={location.geoSlug}>{location.geoName}</Link></li>
+        <li key={location.geoID}><NavLink to={location.geoSlug}>{location.geoName}</NavLink></li>
     )
 
 	return (
 		<>
             <NavBar />
-            <ul>{locationList}</ul>
-            <Outlet context={{category:"geo"}} />
+            <main>
+                <section className="link-sidebar">
+                    <h3>Locations</h3>
+                    <p>Click to load jobs</p>
+                    <ul>{locationList}</ul>
+                </section>
+                <Outlet context={{category:"geo"}} />
+            </main>
 		</>
 	)
 }

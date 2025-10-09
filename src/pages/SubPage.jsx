@@ -28,11 +28,11 @@ function SubPage() {
     }, [slug]);
 
 	return (
-		<>
+		<section>
             {!isData && <p className="error"></p>}
             {isData && <Chart jobs={jobs} />}
             {isData && <JobList jobs={jobs} />}
-		</>
+		</section>
 	)
 }
 

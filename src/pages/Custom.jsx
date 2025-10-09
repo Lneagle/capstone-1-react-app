@@ -81,35 +81,37 @@ function Custom() {
 	return (
 		<>
             <NavBar />
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="location-select">Location:</label>
-                <select id="location-select" value={selectedLocation} onChange={handleLocationChange}>
-                    <option value="">-- Choose location --</option>
-                    {locations.map((location) => (
-                        <option key={location.geoID} value={location.geoSlug}>
-                            {location.geoName}
-                        </option>
-                    ))}
-                </select>
+            <main>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="location-select">Location:</label>
+                    <select id="location-select" value={selectedLocation} onChange={handleLocationChange}>
+                        <option value="">-- Choose location --</option>
+                        {locations.map((location) => (
+                            <option key={location.geoID} value={location.geoSlug}>
+                                {location.geoName}
+                            </option>
+                        ))}
+                    </select>
 
-                <label htmlFor="industry-select">Location:</label>
-                <select id="industry-select" value={selectedIndustry} onChange={handleIndustryChange}>
-                    <option value="">-- Choose industry --</option>
-                    {industries.map((industry) => (
-                        <option key={industry.industryID} value={industry.industrySlug}>
-                            {industry.industryName.replace("&amp;amp;", "&")}
-                        </option>
-                    ))}
-                </select>
+                    <label htmlFor="industry-select">Location:</label>
+                    <select id="industry-select" value={selectedIndustry} onChange={handleIndustryChange}>
+                        <option value="">-- Choose industry --</option>
+                        {industries.map((industry) => (
+                            <option key={industry.industryID} value={industry.industrySlug}>
+                                {industry.industryName.replace("&amp;amp;", "&")}
+                            </option>
+                        ))}
+                    </select>
 
-                <label htmlFor="search-term">Keyword:</label>
-                <input id="search-term" type="text" value={keyword} onChange={handleKeywordChange} />
+                    <label htmlFor="search-term">Keyword:</label>
+                    <input id="search-term" type="text" value={keyword} onChange={handleKeywordChange} />
 
-                <input type="submit" value="Submit" />
-            </form>
-            {!isData && <p className="error"></p>}
-            {isData && <Chart jobs={jobs} />}
-            {isData && <JobList jobs={jobs} />}
+                    <input type="submit" value="Submit" />
+                </form>
+                {!isData && <p className="error"></p>}
+                {isData && <Chart jobs={jobs} />}
+                {isData && <JobList jobs={jobs} />}
+            </main>
 		</>
 	)
 }

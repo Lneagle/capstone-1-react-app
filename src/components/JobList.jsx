@@ -60,12 +60,12 @@ function JobList({ jobs }) {
             <table>
                 <thead>
                     <tr>
-                        <th><button type="button" onClick={() => requestSort('jobTitle')} className={getClassNamesFor('jobTitle')}>Job Title</button></th>
-                        <th><button type="button" onClick={() => requestSort('companyName')} className={getClassNamesFor('companyName')}>Company Name</button></th>
+                        <th><button type="button" onClick={() => requestSort('jobTitle')} className={getClassNamesFor('jobTitle')}>Title</button></th>
+                        <th><button type="button" onClick={() => requestSort('companyName')} className={getClassNamesFor('companyName')}>Company</button></th>
                         <th><button type="button" onClick={() => requestSort('jobIndustry')} className={getClassNamesFor('jobIndustry')}>Industry</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobType')} className={getClassNamesFor('jobType')}>Job Type</button></th>
+                        <th><button type="button" onClick={() => requestSort('jobType')} className={getClassNamesFor('jobType')}>Type</button></th>
                         <th><button type="button" onClick={() => requestSort('jobGeo')} className={getClassNamesFor('jobGeo')}>Location</button></th>
-                        <th><button type="button" onClick={() => requestSort('jobLevel')} className={getClassNamesFor('jobLevel')}>Job Level</button></th>
+                        <th><button type="button" onClick={() => requestSort('jobLevel')} className={getClassNamesFor('jobLevel')}>Level</button></th>
                         <th>Salary Range<br />
                         <button type="button" onClick={() => requestSort('salaryMin')} className={getClassNamesFor('salaryMin')}>Min</button><button type="button" onClick={() => requestSort('salaryMax')} className={getClassNamesFor('salaryMax')}>Max</button></th>
                     </tr>

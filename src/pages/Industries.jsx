@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import savedIndustries from "../data/industries.json";
 import NavBar from "../components/NavBar";
 
@@ -22,14 +22,20 @@ function Industries() {
     }, [])
 
     const industryList = industries.map(industry =>
-        <li key={industry.industryID}><Link to={industry.industrySlug}>{industry.industryName.replace("&amp;amp;", "&")}</Link></li>
+        <li key={industry.industryID}><NavLink to={industry.industrySlug}>{industry.industryName.replace("&amp;amp;", "&")}</NavLink></li>
     );
 
 	return (
 		<>
             <NavBar />
-            <ul>{industryList}</ul>
-            <Outlet context={{category:"industry"}} />
+            <main>
+                <section className="link-sidebar">
+                    <h3>Industries</h3>
+                    <p>Click to load jobs</p>
+                    <ul>{industryList}</ul>
+                </section>
+                <Outlet context={{category:"industry"}} />
+            </main>
 		</>
 	)
 }

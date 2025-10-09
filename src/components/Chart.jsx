@@ -9,6 +9,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import currencyConversion from "../data/currencies.json";
+import { callback } from 'chart.js/helpers';
 
 function Chart({ jobs }) {
     const chartInfo = {
@@ -68,13 +69,20 @@ function Chart({ jobs }) {
         responsive: true,
         plugins: {
             legend: {
-            position: 'top',
+                position: 'bottom',
             },
             title: {
-            display: true,
-            text: 'Average Salaries by Job Level',
+                display: true,
+                text: 'Average Salaries by Job Level (USD)',
             },
         },
+        scales: {
+            y: {
+                ticks: {
+                    callback: value => `$${value.toLocaleString()}`
+                }
+            }
+        }
     };
 
     const labels = ["Entry-Level, Junior", "Midweight", "Senior", "Director", "Any"];
@@ -83,14 +91,14 @@ function Chart({ jobs }) {
         labels,
         datasets: [
             {
-            label: 'Min Salary',
-            data: labels.map(label => chartInfo[label]["minTotal"]/chartInfo[label]["countMin"]),
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                label: 'Min Salary',
+                data: labels.map(label => chartInfo[label]["minTotal"]/chartInfo[label]["countMin"]),
+                backgroundColor: ' #E8DDC1',
             },
             {
-            label: 'Max Salary',
-            data: labels.map(label => chartInfo[label]["maxTotal"]/chartInfo[label]["countMax"]),
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                label: 'Max Salary',
+                data: labels.map(label => chartInfo[label]["maxTotal"]/chartInfo[label]["countMax"]),
+                backgroundColor: ' #B3A593',
             },
         ],
     };

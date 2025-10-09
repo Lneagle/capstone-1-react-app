@@ -1,10 +1,11 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Locations from './pages/Locations'
-import Industries from './pages/Industries'
-import Custom from './pages/Custom'
-import SubPage from './pages/SubPage'
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Locations from './pages/Locations';
+import Industries from './pages/Industries';
+import Custom from './pages/Custom';
+import SubPage from './pages/SubPage';
+import NotFound from './pages/NotFound';
 
 const App = () => (
 <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
             <Route path=":slug" element={<SubPage />} />
         </Route>
         <Route path="/custom" element={<Custom />} />
+        <Route path="*" element={<NotFound />} /> 
     </Routes>
 </BrowserRouter>
 )

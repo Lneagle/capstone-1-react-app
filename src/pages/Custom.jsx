@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import savedLocations from "../data/locations.json"
 import savedIndustries from "../data/industries.json";
 import NavBar from "../components/NavBar";
+import Chart from "../components/Chart";
 import JobList from "../components/JobList";
 
 function Custom() {
@@ -11,13 +12,13 @@ function Custom() {
     const [selectedIndustry, setSelectedIndustry] = useState('');
     const [keyword, setKeyword] = useState('');
     const [jobs, setJobs] = useState([]);
+    const [isData, setIsData] = useState(null);
 
     useEffect(() => {
         fetch("https://jobicy.com/api/v2/remote-jobs?get=locations")
         .then(r => {
             if (!r.ok) { 
-                setLocations(savedLocations.locations);
-                //throw new Error("Could not fetch locations"); 
+                setLocations(savedLocations.locations); 
             }
             return r.json();
         })
@@ -32,7 +33,6 @@ function Custom() {
         .then(r => {
             if (!r.ok) { 
                 setIndustries(savedIndustries.industries);
-                //throw new Error("Could not fetch industries"); 
             }
             return r.json();
         })
@@ -59,14 +59,23 @@ function Custom() {
         fetch(`https://jobicy.com/api/v2/remote-jobs?geo=${selectedLocation}&industry=${selectedIndustry}&tag=${keyword}`)
         .then(r => {
             if (!r.ok) { 
-                throw new Error("Could not fetch jobs") 
+                throw new Error(`${r} error: Could not fetch jobs`);
             }
             return r.json();
         })
         .then(data => {
-            setJobs(data.jobs)
+            if (data["jobCount"] > 0) {
+                setJobs(data.jobs);
+                setIsData(true);
+            } else {
+                setIsData(false);
+                throw new Error(`No jobs found for keyword "${keyword || 'none'}" in ${selectedIndustry || 'any'} industry in ${selectedLocation || 'any location'}`);
+            }
         })
-        .catch(console.log)
+        .catch( e => {
+            setIsData(false);
+            document.querySelector('.error').textContent = e.message;
+        })
     }
 
 	return (
@@ -88,7 +97,7 @@ function Custom() {
                     <option value="">-- Choose industry --</option>
                     {industries.map((industry) => (
                         <option key={industry.industryID} value={industry.industrySlug}>
-                            {industry.industryName}
+                            {industry.industryName.replace("&amp;amp;", "&")}
                         </option>
                     ))}
                 </select>
@@ -98,7 +107,9 @@ function Custom() {
 
                 <input type="submit" value="Submit" />
             </form>
-            <JobList jobs={jobs} />
+            {!isData && <p className="error"></p>}
+            {isData && <Chart jobs={jobs} />}
+            {isData && <JobList jobs={jobs} />}
 		</>
 	)
 }

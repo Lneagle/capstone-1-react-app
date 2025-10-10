@@ -15,6 +15,8 @@ npm install
 npm run dev
 ```
 
+You can also view it live at [https://lacey-murphy-job-search.netlify.app/](https://lacey-murphy-job-search.netlify.app/).
+
 ## Future Considerations
 
 As noted above, salary numbers are converted into USD before sorting or calculating averages.  The conversion rates were recorded and stored in a static file on Oct. 9-10, 2025.  Future upgrades could integrate a conversion API for up-to-date results, and also allow for users to choose which currency they would like results displayed in.

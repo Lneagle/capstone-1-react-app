@@ -8,10 +8,11 @@ function SubPage() {
 	const { category } = useOutletContext();
 	const [jobs, setJobs] = useState([]);
 	const [isData, setIsData] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		setIsData(false);
-		document.querySelector('.message').textContent = "Fetching results...";
+		setIsLoading(true);
 		fetch(`https://jobicy.com/api/v2/remote-jobs?${category}=${slug}`)
 			.then(r => {
 				if (!r.ok) {
@@ -22,16 +23,19 @@ function SubPage() {
 			.then(data => {
 				setJobs(data.jobs);
 				setIsData(true);
+				setIsLoading(false);
 			})
 			.catch(e => {
 				setIsData(false);
-				document.querySelector('.message').textContent = e.message;
+				setIsLoading(false);
+				document.querySelector('.error').textContent = e.message;
 			});
 	}, [slug]);
 
 	return (
 		<section>
-			{!isData && <p className="message"></p>}
+			{isLoading && <p className="message">Fetching data...</p>}
+			{!isData && <p className="error"></p>}
 			{isData && <Chart jobs={jobs} />}
 			{isData && <JobList jobs={jobs} />}
 		</section>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import savedLocations from "../data/locations.json"
 import savedIndustries from "../data/industries.json";
 import NavBar from "../components/NavBar";
@@ -13,6 +13,7 @@ function Custom() {
 	const [keyword, setKeyword] = useState('');
 	const [jobs, setJobs] = useState([]);
 	const [isData, setIsData] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const locationURL = "https://jobicy.com/api/v2/remote-jobs?get=locations";
 	const industryURL = "https://jobicy.com/api/v2/remote-jobs?get=industries";
@@ -59,8 +60,8 @@ function Custom() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		setIsLoading(true);
 		setIsData(false);
-		document.querySelector('.message').textContent = "Fetching results...";
 		fetch(`https://jobicy.com/api/v2/remote-jobs?geo=${selectedLocation}&industry=${selectedIndustry}&tag=${keyword}`)
 			.then(r => {
 				if (!r.ok) {
@@ -72,14 +73,17 @@ function Custom() {
 				if (data["jobCount"] > 0) {
 					setJobs(data.jobs);
 					setIsData(true);
+					setIsLoading(false);
 				} else {
 					setIsData(false);
+					setIsLoading(false);
 					throw new Error(`No jobs found for keyword "${keyword || 'none'}" in ${selectedIndustry || 'any'} industry in ${selectedLocation || 'any location'}`);
 				}
 			})
 			.catch(e => {
+				setIsLoading(false);
 				setIsData(false);
-				document.querySelector('.message').textContent = e.message;
+				document.querySelector('.error').textContent = e.message;
 			})
 	}
 
@@ -113,7 +117,8 @@ function Custom() {
 
 					<input type="submit" value="Submit" />
 				</form>
-				{!isData && <p className="message"></p>}
+				{isLoading && <p className="message">Fetching data...</p>}
+				{!isData && <p className="error"></p>}
 				{isData && <Chart jobs={jobs} />}
 				{isData && <JobList jobs={jobs} />}
 			</main>

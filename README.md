@@ -1,16 +1,20 @@
-# React + Vite
+# Remote Job Search app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Use this app to search remote job postings (provided by [Jobicy](https://jobicy.com/)) by location or industry, or customize your search by industry, location, and keyword.  Search results can be sorted by title, company, industry, type (full- or part-time), location, level, minimum salary, or maximum salary.  Average min and max salary for each job level are also displayed in a chart for each job search.
 
-Currently, two official plugins are available:
+Note: All salary numbers are converted to USD before sorting or calculating averages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img width="683" height="512" alt="2025-10-10_17-40-00" src="https://github.com/user-attachments/assets/4291183f-486e-4ca4-a97b-09bed8fc8e02" />
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation and Usage
 
-## Expanding the ESLint configuration
+Clone this repository, then install dependencies and run:
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Future Considerations
+
+As noted above, salary numbers are converted into USD before sorting or calculating averages.  The conversion rates were recorded and stored in a static file on Oct. 9-10, 2025.  Future upgrades could integrate a conversion API for up-to-date results, and also allow for users to choose which currency they would like results displayed in.

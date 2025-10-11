@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import savedLocations from "../data/locations.json"
-import savedIndustries from "../data/industries.json";
+import savedLocations from "../data/locations.json" //use saved data if fetch fails
+import savedIndustries from "../data/industries.json"; //use saved data if fetch fails
 import NavBar from "../components/NavBar";
 import Chart from "../components/Chart";
 import JobList from "../components/JobList";
@@ -70,11 +70,11 @@ function Custom() {
 				return r.json();
 			})
 			.then(data => {
-				if (data["jobCount"] > 0) {
+				if (data["jobCount"] > 0) { 
 					setJobs(data.jobs);
 					setIsData(true);
 					setIsLoading(false);
-				} else {
+				} else { 
 					setIsData(false);
 					setIsLoading(false);
 					throw new Error(`No jobs found for keyword "${keyword || 'none'}" in ${selectedIndustry || 'any'} industry in ${selectedLocation || 'any location'}`);

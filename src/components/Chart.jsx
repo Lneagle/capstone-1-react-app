@@ -9,7 +9,6 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import currencyConversion from "../data/currencies.json";
-import { callback } from 'chart.js/helpers';
 
 function Chart({ jobs }) {
 	const chartInfo = {
@@ -48,11 +47,11 @@ function Chart({ jobs }) {
 	jobs.forEach(job => {
 		if (job.salaryMin) {
 			chartInfo[job.jobLevel]["countMin"] += 1;
-			chartInfo[job.jobLevel]["minTotal"] += job.salaryMin * currencyConversion[job.salaryCurrency];
+			chartInfo[job.jobLevel]["minTotal"] += job.salaryMin * currencyConversion[job.salaryCurrency]; // converts all salaries to USD for calculations
 		}
 		if (job.salaryMax) {
 			chartInfo[job.jobLevel]["countMax"] += 1;
-			chartInfo[job.jobLevel]["maxTotal"] += job.salaryMax * currencyConversion[job.salaryCurrency];
+			chartInfo[job.jobLevel]["maxTotal"] += job.salaryMax * currencyConversion[job.salaryCurrency]; // converts all salaries to USD for calculations
 		}
 	});
 

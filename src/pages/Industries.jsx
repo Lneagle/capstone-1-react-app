@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import savedIndustries from "../data/industries.json";
+import savedIndustries from "../data/industries.json"; //use saved data if fetch fails
 import NavBar from "../components/NavBar";
 
 function Industries() {

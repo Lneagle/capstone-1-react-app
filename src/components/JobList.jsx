@@ -19,7 +19,7 @@ function JobList({ jobs }) {
 			if (sortConfig.key == "jobIndustry" || sortConfig.key == "jobType") {
 				a = a[sortConfig.key][0];
 				b = b[sortConfig.key][0];
-			} else if (sortConfig.key == "salaryMin" || sortConfig.key == "salaryMax") {
+			} else if (sortConfig.key == "salaryMin" || sortConfig.key == "salaryMax") { // converts all salaries to USD for calculations
 				a = a[sortConfig.key] ? a[sortConfig.key] * currencyConversion[a["salaryCurrency"]] : 0;
 				b = b[sortConfig.key] ? b[sortConfig.key] * currencyConversion[b["salaryCurrency"]] : 0;
 			} else {

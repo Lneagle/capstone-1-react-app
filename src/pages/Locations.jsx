@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import savedLocations from "../data/locations.json"
+import savedLocations from "../data/locations.json" //use saved data if fetch fails
 import NavBar from "../components/NavBar"
 
 function Locations() {

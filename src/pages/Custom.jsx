@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import savedLocations from "../data/locations.json" //use saved data if fetch fails
 import savedIndustries from "../data/industries.json"; //use saved data if fetch fails
 import NavBar from "../components/NavBar";
@@ -62,7 +62,7 @@ function Custom() {
 		event.preventDefault();
 		setIsLoading(true);
 		setIsData(false);
-		fetch(`https://jobicy.com/api/v2/remote-jobs?geo=${selectedLocation}&industry=${selectedIndustry}&tag=${keyword}`)
+		fetch(`https://jobicy.com/api/v2/remote-jobs?geo=${selectedLocation}&industry=${selectedIndustry}${keyword ? '&tag=' : ''}${keyword}`)
 			.then(r => {
 				if (!r.ok) {
 					throw new Error(`${r} error: Could not fetch jobs`);
